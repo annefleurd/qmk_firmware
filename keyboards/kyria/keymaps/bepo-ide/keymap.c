@@ -32,56 +32,56 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |    W   |   A  |   U  |  I   |   E  |   ,  |                              |   C  |   T  |   S  |   R  |   N  |   M    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * | LShift |   À  |   Y  |   X  |   .  |   K  |Insert| Enter|  |Delete| Bksp |   ’  |   Q  |   G  |   H  |   F  |   Ç    |
+ * | LShift |   À  |   Y  |   X  |   .  |   K  |Insert|  ESC |  | Raise| Bksp |   ’  |   Q  |   G  |   H  |   F  |   Ç    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        | GUI  | Ctrl |  Alt | Space|  ESC |  | Enter|      |      |CapsLk| AltGr|
- *                        |      |      |      | Lower| Raise|  |      | Lower| Raise|      |      |
+ *                        | GUI  | Ctrl |  Alt | Space| Enter|  | Enter| Space|      |LShift| AltGr|
+ *                        |      |      |      | Lower| Raise|  |      | Raise| Lower|      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_BEPO] = LAYOUT(
-      KC_TAB,  BP_B,    BP_E_ACUTE, BP_P,    BP_O,    BP_E_GRAVE,                                 BP_DCRC, BP_V, BP_D, BP_L, BP_J, BP_Z,
-      BP_W,    BP_A,    BP_U,       BP_I,    BP_E,    BP_COMM,                                    BP_C,    BP_T, BP_S, BP_R, BP_N, BP_M,
-      KC_LSFT, BP_AGRV, BP_Y,       BP_X,    BP_DOT,  BP_K,      KC_INS, KC_ENT, KC_DEL, KC_BSPC, BP_APOS, BP_Q, BP_G, BP_H, BP_F, BP_CCED,
-              KC_LGUI, KC_LCTL, KC_LALT, LT(_LOWER, KC_SPC), LT(_RAISE, KC_ESC), KC_ENT, TT(_LOWER), TT(_RAISE), KC_CAPS, KC_RALT
+      KC_TAB,  BP_B,    BP_E_ACUTE, BP_P, BP_O,   BP_E_GRAVE,                                     BP_DCRC, BP_V, BP_D, BP_L, BP_J, BP_Z,
+      BP_W,    BP_A,    BP_U,       BP_I, BP_E,   BP_COMM,                                        BP_C,    BP_T, BP_S, BP_R, BP_N, BP_M,
+      KC_LSFT, BP_AGRV, BP_Y,       BP_X, BP_DOT, BP_K,      KC_INS, KC_ESC, TG(_RAISE), KC_BSPC, BP_APOS, BP_Q, BP_G, BP_H, BP_F, BP_CCED,
+            KC_LGUI, KC_LCTL, KC_LALT, LT(_LOWER, KC_SPC), LT(_RAISE, KC_ENT), KC_ENT, LT(_RAISE, KC_SPC), OSL(_LOWER), KC_LSFT, KC_RALT
     ),
 /*
- * Raise Layer: Numbers, symbols and function keys
+ * Raise Layer: Numbers, symbols and media
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |    $   |  "   |  °   |  `   |  (   |  )   |                              |   @  |   +  |   -  |   /  |   *  |   =    |
+ * |    $   |  "   |  °   |  `   |  (   |  )   |                              | PgUp | Home | Up   | End  |      | ScrlLk |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |    #   |  1   |  2   |  3   |  4   |  5   |                              |  F1  |  F2  |  F3  |  F4  |  F5  |   F6   |
+ * |    #   |  1   |  2   |  3   |  4   |  5   |                              | PgDn | Left | Down | Right|      | CapsLk |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |    %   |  6   |  7   |  8   |  9   |  0   |      |      |  |      |      |  F7  |  F8  |  F9  |  F10 |  F11 |   F12  |
+ * |    %   |  6   |  7   |  8   |  9   |  0   |      |      |  |      |      |      |      |      |      |      | PrtScr |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_RAISE] = LAYOUT(
-      BP_DOLLAR,  BP_DQUO, BP_DEGR, BP_GRV, BP_LPRN, BP_RPRN,                                       BP_AT, BP_PLUS, BP_MINS, BP_SLASH, BP_ASTR, BP_EQL,
-      BP_HASH,    BP_1,    BP_2,    BP_3,    BP_4,    BP_5,                                         KC_F1,   KC_F2,   KC_F3,    KC_F4,   KC_F5,  KC_F6,
-      BP_PERC,    BP_6,    BP_7,     BP_8,    BP_9,    BP_0, _______, _______,   _______, _______,  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11, KC_F12,
-                                 _______, _______, _______, _______, _______,   _______, _______, _______, _______, _______
+      BP_DOLLAR, BP_DQUO, BP_DEGR, BP_GRV, BP_LPRN, BP_RPRN,                                  KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_SLCK,
+      BP_HASH,   BP_1,    BP_2,    BP_3,   BP_4,    BP_5,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_CAPS,
+      BP_PERC,   BP_6,    BP_7,    BP_8,   BP_9,    BP_0, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR,
+                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 /*
- * Lower Layer: Number keys, media, navigation
+ * Lower Layer: Media, symbols and function keys
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |      |      |      |BrigDn|BrigUp|                              | PgUp | Home | Up   | End  |      | ScrlLk |
+ * |        |      |      |      |BrigDn|BrigUp|                              |   @  |   +  |   -  |   /  |   *  |   =    |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |      |  Cut | Copy | Paste| VolUp|                              | PgDn | Left | Down | Right|      | PrtScr |
+ * |        | Undo |  Cut | Copy | Paste| VolUp|                              |  F1  |  F2  |  F3  |  F4  |  F5  |   F6   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |      |      |      | Mute | VolDn|      |      |  |      |      |      |      |      |      |      |        |
+ * |        |      |      |      | Mute | VolDn|      |      |  |      |      |  F7  |  F8  |  F9  |  F10 |  F11 |   F12  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_LOWER] = LAYOUT(
-      _______, _______, _______, _______, KC_BRID, KC_BRIU,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_SLCK,
-      _______, _______, C(BP_X), C(BP_C), C(BP_V), KC_VOLU,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_PSCR,
-      _______, _______, _______, _______, KC_MUTE, KC_VOLD, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, KC_BRID, KC_BRIU,                                     BP_AT, BP_PLUS, BP_MINS, BP_SLASH, BP_ASTR, BP_EQL,
+      _______, C(BP_Z), C(BP_X), C(BP_C), C(BP_V), KC_VOLU,                                     KC_F1,   KC_F2,   KC_F3,    KC_F4,   KC_F5,  KC_F6,
+      _______, _______, _______, _______, KC_MUTE, KC_VOLD, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11, KC_F12,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 // /*
